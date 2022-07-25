@@ -16,8 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_175644) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title", limit: 140
-    t.string "description", limit: 300
-    t.boolean "status"
+    t.text "description"
+    t.boolean "is_private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "users_id"
@@ -27,8 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_175644) do
   create_table "photos", force: :cascade do |t|
     t.string "url", limit: 255
     t.string "title", limit: 140
-    t.string "description", limit: 300
-    t.boolean "status"
+    t.string "text", limit: 300
+    t.boolean "is_private"
     t.bigint "albums_id"
     t.bigint "users_id"
     t.datetime "created_at", null: false
