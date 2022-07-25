@@ -17,5 +17,8 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
       t.belongs_to :albums
       t.timestamps
     end
+
+    add_reference :photos, :users
+    
   end
 end
