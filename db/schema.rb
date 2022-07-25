@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_175644) do
   create_table "albums", force: :cascade do |t|
     t.string "title", limit: 140
     t.string "description", limit: 300
-    t.string "status", limit: 15
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "users_id"
@@ -28,11 +28,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_175644) do
     t.string "url", limit: 255
     t.string "title", limit: 140
     t.string "description", limit: 300
-    t.string "status", limit: 15
+    t.boolean "status"
     t.bigint "albums_id"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["albums_id"], name: "index_photos_on_albums_id"
+    t.index ["users_id"], name: "index_photos_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
