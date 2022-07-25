@@ -11,7 +11,7 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
 
     create_table :photos do |t|
       t.string :url, limit:255
-      t.string :title, limit:140
+      t.string :title, limit: 140
       t.string :description, limit:300
       t.string :status, limit:15
       t.belongs_to :albums
