@@ -5,9 +5,8 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
       t.string :description, limit: 300
       t.boolean :status
       t.timestamps
+      t.reference :users
     end
-
-    add_reference :albums, :users
 
     create_table :photos do |t|
       t.string :url, limit: 255
@@ -15,10 +14,8 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
       t.string :description, limit: 300
       t.boolean :status
       t.belongs_to :albums
+      t.reference :users
       t.timestamps
     end
-
-    add_reference :photos, :users
-    
   end
 end
