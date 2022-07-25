@@ -5,7 +5,7 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
       t.string :description, limit: 300
       t.boolean :status
       t.timestamps
-      t.reference :users
+      t.reference :users, index: true
     end
 
     create_table :photos do |t|
@@ -13,8 +13,8 @@ class CreateAlbumAndPhoto < ActiveRecord::Migration[7.0]
       t.string :title, limit: 140
       t.string :description, limit: 300
       t.boolean :status
-      t.belongs_to :albums
-      t.reference :users
+      t.belongs_to :albums, index: true
+      t.reference :users, 
       t.timestamps
     end
   end
