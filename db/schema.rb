@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_11_100715) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_022144) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_100715) do
   create_table "photos", force: :cascade do |t|
     t.string "url", limit: 255
     t.string "title", limit: 140
-    t.string "text", limit: 300
+    t.string "description", limit: 300
     t.boolean "is_private", default: false
     t.bigint "album_id"
     t.bigint "user_id"
