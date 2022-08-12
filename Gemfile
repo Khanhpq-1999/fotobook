@@ -76,3 +76,6 @@ end
 
 #devise gem
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+#kaminary
+gem 'kaminari', '~> 1.2', '>= 1.2.2'

@@ -1,25 +1,30 @@
 <div class="col-lg-11 col-xl-6 p-2">
+
   <div class="bg-light d-flex shadow rounded overflow-hidden" style="height: 330px">
 
-    <div class="col-6 p-1" data-toggle="modal" data-target="#album_modal_<%=album.id%>">
+    <div class="col-6 p-1" data-toggle="modal" data-target="#album_modal_<%= album.id %>">
+
       <%if album.photos.size == 0%>
+
         <div class="pt-3 px-2 position-relative">
-          <img src= "/assets/photo_not_found.png" class="img-fluid img-thumbnail" style="transform: rotate(14deg);">
-          <img src= "/assets/photo_not_found.png" class="img-fluid img-thumbnail position-absolute" style="right: 0;transform: rotate(5deg);">
-          <img src= "/assets/photo_not_found.png" class="img-fluid img-thumbnail position-absolute" style="right: 0;">
+
+          <%= image_tag("photo_not_found.png", class: "img-fluid img-thumbnail", style: "transform: rotate(14deg);") %>
+          <%= image_tag("photo_not_found.png", class: "img-fluid img-thumbnail position-absolute", style: "right: 0;transform: rotate(5deg);") %>
+          <%= image_tag("photo_not_found.png", class: "img-fluid img-thumbnail position-absolute", style: "right: 0;") %>
         </div>
       <% else %>
+
         <div class="pt-3 px-2 position-relative">
-          <img src= <%=album.photos.first.url%> class="img-fluid img-thumbnail" style="transform: rotate(14deg);">
-          <img src= <%=album.photos.first.url%> class="img-fluid img-thumbnail position-absolute" style="right: 0;transform: rotate(5deg);">
-          <img src= <%=album.photos.first.url%> class="img-fluid img-thumbnail position-absolute" style="right: 0;">
+          <%= image_tag(album.photos.first.url, class: "img-fluid img-thumbnail", style: "transform: rotate(14deg);") %>
+          <%= image_tag(album.photos.first.url, class: "img-fluid img-thumbnail position-absolute", style: "right: 0;transform: rotate(5deg);") %>
+          <%= image_tag(album.photos.first.url, class: "img-fluid img-thumbnail position-absolute", style: "right: 0;") %>
         </div>
-      <%end%>
+      <% end %>
     </div>
 
-    <%=render "album_modal", album: album %>
+    <%= render "album_modal", album: album %>
 
     <!-- details -->
-    <%=render "album_details", album: album, user: user%>
+    <%= render "album_details", album: album, user: user %>
   </div>
 </div>

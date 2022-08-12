@@ -1,5 +1,4 @@
 <%= render "shared/navbar", user: @user%>
-
 <div class="bg-light w-100 py-4 row m-0">
   <!-- navigaror  -->
   <ul class="col-md-2 d-none d-lg-block nav flex-column font-weight-bolder pl-5">
@@ -25,15 +24,7 @@
       <% end %>
     </div>
 
-    <nav class="pt-3">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link text-secondary" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </nav>
+    <%= paginate @photos, window: 2%>
   </div>
   <div class="col-md-2 d-none d-lg-block"></div>
 </div>

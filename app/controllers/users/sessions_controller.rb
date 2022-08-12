@@ -10,15 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    self.resource = warden.authenticate!(auth_options)
-    unless self.resource.active
-      respond_with resource, location: after_inactive_sign_in_path_for(resource)
-    else
-      set_flash_message!(:notice, :signed_in)
-      sign_in(resource_name, resource)
-      yield resource if block_given?
-      respond_with resource, location: after_sign_in_path_for(resource)
-    end  
+    super
   end
 
   # DELETE /resource/sign_out
@@ -35,9 +27,5 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     feed_user_photos_path(resource) # redirect to user feed
-  end
-
-  def after_inactive_sign_in_path_for(resource)
-    welcome_user_path(resource) # redirect to warning page
   end
 end

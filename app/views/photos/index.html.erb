@@ -22,20 +22,12 @@
 
     <!-- feed info -->
     <div class="d-flex flex-wrap flex-grow-1 align-content-start">
-      <% @user.photos.order(updated_at: :desc).each do |photo| %>
+      <% @photos.order(updated_at: :desc).each do |photo| %>
         <%= render partial: "photo", locals: { photo: photo, user: @user } %>
       <% end %>
     </div>
 
-    <nav class="pt-3">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link text-secondary" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </nav>
+    <%= paginate @photos, window: 2%>
   </div>
   <div class="col-md-2 d-none d-lg-block"></div>
 </div>

@@ -1,5 +1,4 @@
 <%=render "users/nav_bar"%>
-
 <div class="container">
   <h1 class="w-100 text-center text-primary font-weight-bolder mt-5 pt-5 mb-5">
     Fotobook Login
@@ -46,18 +45,4 @@
 
 </div>
 
-
-<script>
-  $(document).ready(function(){
-    $("#new_user").validate({
-      rules: {
-        'user[email]': {
-          'required': true
-        },
-        'user[password]': {
-          'required': true
-        }
-      }
-    })
-  })
-</script>
+<%= javascript_include_tag "custom/sign_in_form_validate"%>

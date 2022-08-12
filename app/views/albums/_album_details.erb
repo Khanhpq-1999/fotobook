@@ -1,18 +1,18 @@
 <div class="p-3 d-flex flex-column">
   <!-- user name -->
   <div class="d-flex">
-    <%= render "shared/author_avatar", user: user%>
-    <span class="text-nowrap my-auto pl-2 text-primary font-weight-bolder"><%= user.first_name + " " + user.last_name%> </span>
+    <%= render "shared/author_avatar", user: user %>
+    <span class="text-nowrap my-auto pl-2 text-primary font-weight-bolder"><%= user.full_name %> </span>
   </div>
 
   <div class="flex-column flex-grow-1">
 
     <div class="font-weight-bolder my-3">
-      <%= album.title%>
+      <%= album.title %>
     </div>
 
     <p class="overflow-hidden" style="height: 170px">
-      <%= album.description%>
+      <%= album.description %>
     </p>
   </div>
 

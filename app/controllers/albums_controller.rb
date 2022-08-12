@@ -6,6 +6,6 @@ class AlbumsController < ApplicationController
 
   def feed
     @user = User.find(params[:user_id])
-    @albums = Album.includes(:user).where(is_private: false).or(Album.includes(:user).where(is_private: nil))
+    @albums = Album.includes(:user).where(is_private: false).page(params[:page]).per(PER_PAGE)
   end
 end
