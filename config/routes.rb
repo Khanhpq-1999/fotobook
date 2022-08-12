@@ -1,28 +1,6 @@
 Rails.application.routes.draw do
-  devise_scope :user do
-    root to: "users/sessions#new"
-  end
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
-  
-  resources :users do
-    member do
-      get 'welcome'
-    end
-    
-    resources :photos, shallow: true do
-      collection do
-        get 'feed'
-      end
-    end
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-    resources :albums, shallow: true do
-      collection do
-        get 'feed'
-      end
-    end
-  end
-
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
