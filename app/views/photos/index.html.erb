@@ -1,0 +1,41 @@
+<%= render "shared/navbar", user: @user%>
+
+<div class="bg-light w-100 py-4 row m-0">
+  <!-- navigaror  -->
+  <ul class="col-md-2 d-none d-lg-block nav flex-column font-weight-bolder pl-5">
+    <li class="nav-item">
+      <%= link_to "Feeds", feed_user_photos_path(@user), class: "nav-link text-secondary"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "My Photos", user_photos_path(@user), class: "nav-link"%>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-secondary" href="#">My Albums</a>
+    </li>
+  </ul>
+
+  <!-- feed -->
+  <div class="col-md-8 bg-white container d-flex flex-column align-items-center rounded min-vh-100">
+  
+    <!--nav button -->
+    <%= render "nav_button", user: @user%>
+
+    <!-- feed info -->
+    <div class="d-flex flex-wrap flex-grow-1 align-content-start">
+      <% @user.photos.order(updated_at: :desc).each do |photo| %>
+        <%= render partial: "photo", locals: { photo: photo, user: @user } %>
+      <% end %>
+    </div>
+
+    <nav class="pt-3">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link text-secondary" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-2 d-none d-lg-block"></div>
+</div>
